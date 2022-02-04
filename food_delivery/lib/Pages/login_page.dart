@@ -3,6 +3,7 @@ import 'package:food_delivery/Constants/colors.dart';
 import 'package:food_delivery/Firebase/authentication.dart';
 import 'package:food_delivery/Widgets/custom_input.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -44,8 +45,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   )),
                 ),
-                onPressed: () {
-                },
+                onPressed: () {},
                 child: const Text(
                   'Login',
                   style: TextStyle(
@@ -78,11 +78,18 @@ class LoginPage extends StatelessWidget {
                     side: BorderSide(color: Color(0xFFDD4B39), width: 1.5),
                   )),
                 ),
-                onPressed: (){
+                onPressed: () {
                   print("test");
                   Authentication.signInWithGoogle(context: context)
                       .then((value) {
-                    print("Logged in");
+                    return Fluttertoast.showToast(
+                        msg: "Logged in",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        timeInSecForIosWeb: 1,
+                        backgroundColor: Colors.red,
+                        textColor: Colors.white,
+                        fontSize: 16.0);
                   });
                 },
                 child: Text(
