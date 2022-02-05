@@ -18,7 +18,10 @@ class LoginPage extends StatelessWidget {
           children: [
             Text(
               'Login',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              ),
             ),
             SizedBox(
               height: 10,
